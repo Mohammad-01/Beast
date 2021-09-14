@@ -1,26 +1,23 @@
 import React from 'react';
 import HornedBeast from './HornedBeast';
-import HornedData from './HornedData';
 
-class Main extends React.Component{
-    render(){
-        return(
-  
+class Main extends React.Component {
+
+render() {
+ return (
+ <main>
     <div>
-        { HornedData.map((element, count) => {
-                return ( <HornedBeast
-                url = {element.image_url}
-                title = {element.title}
-                description = {element.description}
-                />
-                )
-            } )
-    }
-
-    </div>
+        { this.props.Data.map ( 
+            
+value => {
     
-        );
-    }
-}
+    return (
+      <HornedBeast 
+         title={value.title} url={value.image_url} description ={value.description} viewBeast={this.props.viewBeast}/>
+    )  } )}
+    
+    </div>
 
-export default Main;
+  </main>
+    ); }}
+    export default Main;

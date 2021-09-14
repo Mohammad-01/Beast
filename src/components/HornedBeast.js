@@ -1,46 +1,72 @@
-import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
+    import React from "react";
+    import 'bootstrap/dist/css/bootstrap.min.css';
+    import Card from 'react-bootstrap/Card'
+    import Button from 'react-bootstrap/Button'
 
-class HornedBeast extends React.Component {
-    
-    constructor(props) {
-        super(props);
-        this.state = {
-            numOfPets: 0
+
+    class HornedBeast extends React.Component {
+
+        constructor(props){
+          super(props);
+          this.state = { NiceNum : 0, NotNiceNum : 0,}
         }
-    }
+      
 
-    // for adding 1 to the clicked on image
-    increaseNumberOfPets = () => {
-        this.setState({
-            numOfPets: this.state.numOfPets + 1
-        })
-    }
+        Nice = ( ) => {
+        this.setState (
+          { NiceNum : this.state.NiceNum + 1 }
+        );
+        }
 
-    render() {
-        return (
+        NotNice = ( ) => {
+        this.setState (
+          { NotNiceNum : this.state.NotNiceNum + 1 }
+        );
+        }
+        
+      
 
-            /*<div>
-                <h2>{this.props.title}</h2>
-                <img src={this.props.url} alt={this.props.keyword} 
-                 title={this.props.horns} />
-                <p>{this.props.description}</p>
-            </div>*/
+        displayBeast = (int) => {
+          this.props.viewBeast(int);
+          this.setState (
+            {NiceNum : this.state.NiceNum + 1}
+          );
+        }
+      
+        displayBeast2 = (i) => {
+          this.setState (
+            {NotNiceNum : this.state.NotNiceNum + 1}
+          );
+        }
 
-            <div>
-            <Card style={{ width: '18rem' }}>
-            <Card.Img src={this.props.url}/>
-            <Card.Body>
-                <Card.Title>{this.props.title}</Card.Title>
-                <Card.Text>{this.props.description} {this.state.numOfPets}</Card.Text>
-                <Button onClick={this.increaseNumberOfPets} variant="primary">Vote</Button>
-            </Card.Body>
-            </Card>
-            </div>
 
-        )
-    }
-}
-export default HornedBeast;
+        render() {
+          return (
+          <div>
+
+          <Card style={{ width: '16rem' }}>
+
+          <Card.Img 
+          onClick={this.displayBeast} variant="top" src = {this.props.url} name={this.props.title} det ={this.props.description} />
+
+          <Card.Body>
+
+              <Card.Title>{this.props.title}</Card.Title>
+              <Card.Text> {this.props.description} </Card.Text>
+
+              <Button onClick = {this.Nice} variant="primary">Nice </Button>
+                      <div> 💘  {this.state.NiceNum}</div> 
+              <Button onClick = {this.NotNice} variant="primary">Not Nice </Button>
+                      <div>  👎  {this.state.NotNiceNum}</div> 
+
+          </Card.Body>
+          
+          </Card>
+
+          </div>
+
+          );
+        }
+      }
+      
+      export default HornedBeast;
