@@ -19,5 +19,6 @@ value => {
     </div>
 
   </main>
-    ); }}
+    ); }
+  }
     export default Main;
