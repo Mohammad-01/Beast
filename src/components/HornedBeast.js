@@ -8,24 +8,10 @@
 
         constructor(props){
           super(props);
+          
           this.state = { NiceNum : 0, NotNiceNum : 0,}
         }
-      
-
-        Nice = ( ) => {
-        this.setState (
-          { NiceNum : this.state.NiceNum + 1 }
-        );
-        }
-
-        NotNice = ( ) => {
-        this.setState (
-          { NotNiceNum : this.state.NotNiceNum + 1 }
-        );
-        }
-        
-      
-
+  
         displayBeast = (int) => {
           this.props.viewBeast(int);
           this.setState (
@@ -40,6 +26,18 @@
         }
 
 
+        Nice = ( ) => {
+          this.setState (
+            { NiceNum : this.state.NiceNum + 1 }
+          );
+          }
+  
+        NotNice = ( ) => {
+         this.setState (
+           { NotNiceNum : this.state.NotNiceNum + 1 }
+          );
+          }
+          
         render() {
           return (
           <div>

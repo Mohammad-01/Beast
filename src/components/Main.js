@@ -7,9 +7,7 @@ render() {
  return (
  <main>
     <div>
-        { this.props.Data.map ( 
-            
-value => {
+        { this.props.jsonData.map ( value => {
     
     return (
       <HornedBeast 
@@ -19,5 +17,6 @@ value => {
     </div>
 
   </main>
-    ); }}
+    ); }
+  }
     export default Main;
