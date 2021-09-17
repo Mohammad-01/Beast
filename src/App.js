@@ -20,21 +20,20 @@ class App extends React.Component{
     }
   }
   
-  filterData = (num)=>{
+  filter = (number)=>{
 
-    let filterarr = jsonData.filter(element=>{
-      if(num === 0){
-        return element;
-      }else{
-        if(element.horns === num){
-          return true;
-        }
-        else{
-          return false;
-        }
-      }
-    });
-    return filterarr;
+    let arrayEdit = jsonData.filter(valuee=>{
+      if(number === 0){return valuee; }
+      
+      else{
+
+        if ( valuee.horns === number) {
+          return true; }
+
+        else {
+          return false; }
+      }});
+    return arrayEdit;
   }
 
   viewBeast = (int)=>{
@@ -54,7 +53,7 @@ class App extends React.Component{
       event.preventDefault();
       await this.setState({
       numberOfHorns: event.target.horns,
-      sendData: this.filterData(Number(event.target.value))
+      sendData: this.filter(Number(event.target.value))
     });
     console.log(this.state.sendData);
   };
